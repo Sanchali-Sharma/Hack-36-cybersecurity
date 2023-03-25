@@ -1,17 +1,26 @@
 import './App.css';
-import ContactUs from './components/ContactUs';
 import Login from './Login';
-import { useState } from 'react';
-import axios from 'axios'
-
-
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import Home from './Home';
+import Main from './Main';
+import News from './News';
 
 function App() {
-  const mystorage=window.localStorage
-  const [currentUser, setCurrentUser]=useState(mystorage.getItem("user"))
   return (
     <div className="App">
-     <Login setCurrentUser={setCurrentUser} mystorage={mystorage}/>
+      <Router>
+        <Switch>
+          <Route exact path="/login">
+            <Login />
+          </Route>
+          <Route exact path="/home">
+            <Main />
+          </Route>
+          <Route exact path="/news">
+            <News />
+          </Route>
+        </Switch>
+      </Router>
     </div>
   );
 }
