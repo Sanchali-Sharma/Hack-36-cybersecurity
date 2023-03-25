@@ -3,7 +3,9 @@ import Login from './Login';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Home from './Home';
 import Main from './Main';
-import { useState } from 'react';
+import { Component, useState } from 'react';
+import ContactUs from './components/ContactUs'
+import Learn from './components/Learn'
 // import News from './News';
 
 function App() {
@@ -12,7 +14,10 @@ function App() {
     <div className="App">
       <Router>
         <Switch>
-          <Route exact path="/">
+        <Route exact path="/learn">
+            <Learn currentUser={currentUser}/>
+          </Route>
+          {/* <Route exact path="/">
             <Home currentUser={currentUser}/>
           </Route>
           <Route exact path="/login">
@@ -21,9 +26,12 @@ function App() {
           <Route exact path="/home">
             <Main  />
           </Route>
-          {/* <Route exact path="/news">
-            <News />
-          </Route> */}
+          <Route exact path="/contact">
+            <ContactUs  />
+          </Route>
+          {/* <Route exact path="/news"> */}
+            {/* <News />
+          </Route> */} 
         </Switch>
       </Router>
     </div>
