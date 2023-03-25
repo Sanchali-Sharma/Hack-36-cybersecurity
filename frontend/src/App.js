@@ -6,6 +6,8 @@ import Main from './Main';
 import { Component, useState } from 'react';
 import ContactUs from './components/ContactUs'
 import Learn from './components/Learn'
+import { useState } from 'react';
+import Sidebar from './components/Sidebar';
 // import News from './News';
 
 function App() {
