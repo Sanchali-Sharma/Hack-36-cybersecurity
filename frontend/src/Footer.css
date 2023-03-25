@@ -1,0 +1,79 @@
+.page-footer {
+    background-color: black;
+    margin-bottom: 40px;
+    border-top: 3px solid #3b362f;
+    margin-top: 30px;
+    position: relative;
+    overflow-x: hidden;
+    display: block;
+    top: 39px;
+    padding: 0 calc(3.5vw + 5px);
+}
+.page-footer .footer-content {
+    border-top: none;
+    padding-top: 45px;
+}
+.footer-content{
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1235px;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    width: 100%;
+}   
+.page-footer .footer-content{
+    font-family: 'Bree Serif';
+    font-size: 20px;
+    letter-spacing: 0px;
+    color: #333;
+}   
+.menu{
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: rgb(247, 171, 73);
+}
+.data{
+    box-sizing: border-box;
+    flex: 0.33;
+    flex-direction: column;
+    padding-right: 1rem;
+    padding-left: 36px;
+    
+}
+.sub{
+    line-height: 42px;
+    padding-top: 10px;
+}
+
+.sub li{
+    list-style: none;
+}
+.sub a{
+    text-decoration: none;
+    color: white;
+}
+.sub a:hover{
+    color: rgba(22, 20, 20, 0.733);
+    color: #e0d3d3;
+}
+.row {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-right: -1rem;
+    margin-left: -1rem;
+}
+.lazy{
+    display: inline-block;
+    overflow: hidden;
+    vertical-align: middle;
+    margin-bottom: 1rem;
+}
+.last{
+    margin-top: 2rem;
+    color: #131467;
+    background-color: rgb(247, 213, 162);
+    justify-content: center;
+    display: flex;
+}
