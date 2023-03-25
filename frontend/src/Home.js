@@ -1,11 +1,16 @@
 import styled from "styled-components";
+import {useHistory} from 'react-router-dom'
 // import { Link } from "react-router-dom";
 import "./Home.css";
 
 
-const Home = () => {
+const Home = ({currentUser}) => {
+ let history=useHistory()
+    return (
+      
 
-    return <Nav>
+    <Nav>
+       {!currentUser && history.push("/login")}
             <Logo>
                 <h3 className="white">Tech-X-Cyber</h3>
             </Logo>
@@ -49,7 +54,7 @@ const Home = () => {
             </NavMenu>
         </>
     </Nav>
-};
+)};
 
 
 const Nav = styled.nav`

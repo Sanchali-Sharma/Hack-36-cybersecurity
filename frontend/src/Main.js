@@ -6,7 +6,7 @@ import Home from './Home'
 const Main = () => {
     return (
         <>
-            <Home />
+            <Home currentUser={true}/>
             <Container>
                 <img src="./images/Cyber3.jpg" alt="" />
             <Text>

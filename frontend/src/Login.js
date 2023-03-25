@@ -1,9 +1,11 @@
 import './Login.css';
 import { useState,useRef } from 'react';
 import axios from 'axios'
+import { useHistory } from 'react-router-dom';
 // import { a } from "react-router-dom";
 
-const Login = ({setCurrentUser,myStorage }) => {
+const Login = ({setCurrentUser}) => {
+    let history=useHistory();
     const [success, setSuccess] = useState(false);
     const [error, setError] = useState(false);
     const [errorL, setErrorL] = useState(false);
@@ -45,9 +47,10 @@ const Login = ({setCurrentUser,myStorage }) => {
         };
         try {
             const res = await axios.post("http://localhost:8800/users/login", user);
-            // setCurrentUser(res.data.username);
+            console.log(res.data.username)
+            setCurrentUser(res.data.username);
+            history.push('/home')
             // myStorage.setItem('user', res.data.username);
-            console.log("successful");
         }catch(err) {
             setErrorL(true);
         }

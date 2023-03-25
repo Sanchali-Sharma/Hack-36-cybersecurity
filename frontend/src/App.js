@@ -3,22 +3,27 @@ import Login from './Login';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Home from './Home';
 import Main from './Main';
-import News from './News';
+import { useState } from 'react';
+// import News from './News';
 
 function App() {
+  const [currentUser,setCurrentUser]=useState(false)
   return (
     <div className="App">
       <Router>
         <Switch>
+          <Route exact path="/">
+            <Home currentUser={currentUser}/>
+          </Route>
           <Route exact path="/login">
-            <Login />
+            <Login setCurrentUser={setCurrentUser} />
           </Route>
           <Route exact path="/home">
-            <Main />
+            <Main  />
           </Route>
-          <Route exact path="/news">
+          {/* <Route exact path="/news">
             <News />
-          </Route>
+          </Route> */}
         </Switch>
       </Router>
     </div>
