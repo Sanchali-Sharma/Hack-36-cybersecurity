@@ -1,9 +1,18 @@
-import { useState } from "react";
+import { useState ,useRef} from "react";
 import React from "react";
 
 const Sidebar = () => {
+    const messageRef=useRef()
   const [showSidebar, setShowSidebar] = useState(false);
-
+  const [message,setMessage]=useState([])
+    const displayMessage=()=>{
+        setMessage(e=>[...e, <div className="w-5/6 border rounded m-2 p-2 text-left left-0 ">
+        <h1>UseName</h1> <span> <h1>{messageRef.current.value}</h1></span>
+      </div>]) 
+    }
+    const sendMessage=(e)=>{
+        displayMessage()
+    }
   return (
     <>
       {showSidebar ? (
@@ -33,12 +42,12 @@ const Sidebar = () => {
           showSidebar ? "translate-x-0 " : "translate-x-full"
         }`}
       >
-        {/* <h2 className="mt-20 text-4xl font-semibold text-white text-left">
-          
-        </h2> */}
+        {/* <h2 className="mt-20 text-4xl font-semibold text-white text-left"> </h2> */}
+        {message}
         <div className="flex justify-around p-4 absolute bottom-0  w-3/4">
-         <input type="text" id="first_name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Enter your message" required></input>
-        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Send</button>
+          
+         <input type="text" id="first_name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Enter your message" required ref={messageRef}></input>
+        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onClick={sendMessage}>Send</button>
         </div>
       </div>
     </>
