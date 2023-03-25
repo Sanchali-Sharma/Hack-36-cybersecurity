@@ -1,18 +1,30 @@
-import { useState ,useRef} from "react";
+import { useState ,useRef,useEffect} from "react";
 import React from "react";
+import {io} from 'socket.io-client'
 
+const socket=io("http://localhost:8800")
 const Sidebar = () => {
+  
+  socket.on("connect",()=>{
+    console.log("connected")
+  })
     const messageRef=useRef()
   const [showSidebar, setShowSidebar] = useState(false);
   const [message,setMessage]=useState([])
-    const displayMessage=()=>{
+    const displayMessage=(message,username)=>{
         setMessage(e=>[...e, <div className="w-5/6 border rounded m-2 p-2 text-left left-0 ">
-        <h1>UseName</h1> <span> <h1>{messageRef.current.value}</h1></span>
+        <h1>{username}</h1> <span> <h1>{message}</h1></span>
       </div>]) 
     }
     const sendMessage=(e)=>{
-        displayMessage()
+        socket.emit("send-message",({message:"hellosanchali",username:"sanchali"}))
     }
+    useEffect(()=>{
+      socket.on("recieve-message",({message,username})=>{
+        displayMessage(message,username)
+      },[socket])
+      
+    })
   return (
     <>
       {showSidebar ? (
@@ -46,8 +58,8 @@ const Sidebar = () => {
         {message}
         <div className="flex justify-around p-4 absolute bottom-0  w-3/4">
           
-         <input type="text" id="first_name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Enter your message" required ref={messageRef}></input>
-        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onClick={sendMessage}>Send</button>
+         <input type="text" id="first_name" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Enter your message" required ref={messageRef}></input>
+        <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onClick={sendMessage}>Send</button>
         </div>
       </div>
     </>

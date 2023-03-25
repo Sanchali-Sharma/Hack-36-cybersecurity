@@ -6,7 +6,6 @@ import Main from './Main';
 import { Component, useState } from 'react';
 import ContactUs from './components/ContactUs'
 import Learn from './components/Learn'
-import { useState } from 'react';
 import Sidebar from './components/Sidebar';
 // import News from './News';
 
@@ -16,10 +15,10 @@ function App() {
     <div className="App">
       <Router>
         <Switch>
-        <Route exact path="/learn">
+        {/* <Route exact path="/learn">
             <Learn currentUser={currentUser}/>
-          </Route>
-          {/* <Route exact path="/">
+          </Route>  */}
+          <Route exact path="/">
             <Home currentUser={currentUser}/>
           </Route>
           <Route exact path="/login">
@@ -27,9 +26,9 @@ function App() {
           </Route>
           <Route exact path="/home">
             <Main  />
-          </Route>
+          {/* </Route>
           <Route exact path="/contact">
-            <ContactUs  />
+        <ContactUs  />*/}
           </Route>
           {/* <Route exact path="/news"> */}
             {/* <News />
