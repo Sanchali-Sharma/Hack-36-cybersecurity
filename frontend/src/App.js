@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Home from './Home';
 import Main from './Main';
 import { useState } from 'react';
+import Sidebar from './components/Sidebar';
 // import News from './News';
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
           {/* <Route exact path="/news">
             <News />
           </Route> */}
+          <Sidebar />
         </Switch>
       </Router>
     </div>

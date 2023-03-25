@@ -2,6 +2,7 @@ import styled from "styled-components";
 import {useHistory} from 'react-router-dom'
 // import { Link } from "react-router-dom";
 import "./Home.css";
+import Sidebar from "./components/Sidebar";
 
 
 const Home = ({currentUser}) => {
@@ -49,7 +50,8 @@ const Home = ({currentUser}) => {
                     <span></span>
                     <span></span>
                     <span></span>
-                    DISCUSSION
+                  <button className="invisible">  DISCUSSION</button>
+                  <Sidebar className="relative"/>
                 </a>
             </NavMenu>
         </>
